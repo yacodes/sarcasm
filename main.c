@@ -1,22 +1,13 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <stdbool.h>
+#include <stdbool.h> 
 
 int
-main(int argc, char **argv)
+main()
 {
-  int i, j;
-  bool isCap = false;
-
-  for (i = 1; i < argc; ++i) {
-    j = 0;
-    while (argv[i][j]) {
-      printf("%c", isCap ? toupper(argv[i][j]) : tolower(argv[i][j]));
-      isCap = !isCap;
-      j++;
-    }
-    printf(" ");
-  }
-
+  int c;
+  bool b = false;
+  while ((c = getchar()) != EOF)
+    putchar((b = !b) ? toupper(c) : tolower(c));
   return 0;
 }
